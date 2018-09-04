@@ -1,0 +1,13 @@
+backend: 
+1. cai express js : npm install express --save
+2. tao project : express ten_project -e
+3. tai node_modules: npm install
+
+Ket noi csdl vs node : npm install pg
+
+frontend lấy data từ api:
+ + cài module axios : hỗ trợ việc gửi nhận thông tin get/post giữa node và react, cài ở frontend
+ + search Access-Control-Allow : control các trang web nhận dc data
+ + áp dụng life cycle : hứng data lưu về state, tìm hiểu promise ???
+
++ post : truyền data từ reactjs qua nodejs, phải set proxy trong package.json trong phần front-end
