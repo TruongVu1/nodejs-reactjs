@@ -6,8 +6,8 @@ import axios from 'axios';
 // import dataProducts from 'https://localhost:4000/getdata01';
 const getProductData = () => axios.get('/getdata01').then((res) => res.data)
 
-const addProductAction = (product_name, product_price, images) => {
-  return axios.post('/add', { product_name, product_price, images })   // get(lấy data về) ko cần tham số nhưng post(đẩy data lên) thì cần tham số(trong case này là 3 đối tượng {} name,price,link)
+const addProductAction = (product_name, product_price, image) => {
+  return axios.post('/add', { product_name, product_price, image })   // get(lấy data về) ko cần tham số nhưng post(đẩy data lên) thì cần tham số(trong case này là 3 đối tượng {} name,price,link)
     .then((res) => res.data)
 }
 
@@ -18,7 +18,7 @@ class App extends Component {
       data: null,
       product_name: '',
       product_price: '',
-      images: ''
+      image: ''
     }
   }
 
@@ -40,7 +40,7 @@ class App extends Component {
           key={key}
           product_name={value.product_name}
           product_price={value.product_price}
-          images={value.images}
+          image={value.image}
         />)
       )
     }
@@ -60,14 +60,14 @@ class App extends Component {
   }
 
   handleClick = () => { // click add button to get data from state
-    var { product_name, product_price, images } = this.state; // = var product_name = this.state.product_name;
+    var { product_name, product_price, image } = this.state; // = var product_name = this.state.product_name;
     //var {product_price} = this.state;
     //var {image} = this.state
     var dataTemp = [];
     var item = {};
     item.product_name = product_name;
     item.product_price = product_price;
-    item.images = images;
+    item.image = image;
 
     dataTemp = this.state.data;
     if (item.product_name !== '') {
@@ -79,7 +79,7 @@ class App extends Component {
 
     console.log(dataTemp);
 
-    addProductAction(product_name, product_price, images).then((response) => {
+    addProductAction(product_name, product_price, image).then((response) => {
       console.log(response)
     })
   }
@@ -123,7 +123,7 @@ class App extends Component {
                     </div>
                     <div className="form-group">
                       <label htmlFor="product_name">Image link</label>
-                      <input type="text" onChange={(event) => this.isChange(event)} className="form-control" name="images" id="images" aria-describedby="name_text" placeholder="Enter image link" />
+                      <input type="text" onChange={(event) => this.isChange(event)} className="form-control" name="image" id="image" aria-describedby="name_text" placeholder="Enter image link" />
                       <small id="name_text" className="form-text text-muted">Enter link</small>
                     </div>
                     <button type="reset" onClick={() => this.handleClick()} className="btn btn-info">Add new</button>

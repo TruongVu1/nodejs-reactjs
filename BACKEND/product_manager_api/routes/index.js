@@ -53,9 +53,9 @@ router.get('/add', function (req, res, next) {
 router.post('/add', function (req, res, next) { // gửi data vô node
   product_name = req.body.product_name,
   product_price = req.body.product_price,
-  images = req.body.images;
+  image = req.body.image;
 
-  pool.query("insert into product_info (product_name, product_price, images) values ($1, $2, $3)",[product_name,product_price,images], (err,response) => {
+  pool.query("insert into product_info (product_name, product_price, image) values ($1, $2, $3)",[product_name,product_price,image], (err,response) => {
     if(err){
       res.send(err);
       res.send(0);

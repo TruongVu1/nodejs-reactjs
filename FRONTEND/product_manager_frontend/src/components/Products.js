@@ -5,7 +5,7 @@ export default class Products extends Component {
     return (
       <div className="col-4">
         <div className="card text-left mt-3">
-          <img className="card-img-top" src={this.props.images} alt="" width="200" height="170"/>
+          <img className="card-img-top" src={this.props.image} alt="" width="200" height="170"/>
           <div className="card-body">
             <h5 className="card-title float-left">
               {this.props.product_name}
